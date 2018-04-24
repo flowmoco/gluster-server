@@ -13,7 +13,7 @@ services:
     volumes:
       - /data/glusterfs:/data/glusterfs
       - metadata:/var/lib/glusterd
-    environtment:
+    environment:
       - GLUSTER_SERVICE_NAME=gluster
 networks:
   gluster:
