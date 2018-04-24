@@ -1,13 +1,13 @@
 version: "3.3"
 services:
-  gluster-server:
-    image: flowmoco/gluster-server:v1.0.0
+  server:
+    image: flowmoco/gluster-server:v1.0.2
     deploy:
       mode: global
       endpoint_mode: dnsrr
       placement:
         constraints:
-          - gluster.mount.ssd == true
+          - node.labels.gluster.ssd == true
     networks:
       - gluster
     volumes:
@@ -18,3 +18,5 @@ networks:
     external: true
 volumes:
   metadata:
+
+
