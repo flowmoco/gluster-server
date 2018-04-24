@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update && apt-get install -y software-properties-common dnsutils
 
 RUN add-apt-repository ppa:gluster/glusterfs-3.8
 
