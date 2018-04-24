@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   server:
-    image: flowmoco/gluster-server:v1.0.2
+    image: flowmoco/gluster-server:v1.0.3
     deploy:
       mode: global
       endpoint_mode: dnsrr
@@ -13,6 +13,8 @@ services:
     volumes:
       - /data/glusterfs:/data/glusterfs
       - metadata:/var/lib/glusterd
+    environtment:
+      - GLUSTER_SERVICE_NAME=gluster
 networks:
   gluster:
     external: true

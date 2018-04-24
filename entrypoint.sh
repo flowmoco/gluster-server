@@ -20,7 +20,6 @@ SCRIPTNAME=/etc/init.d/$NAME
 DAEMON=/usr/sbin/$NAME
 PIDFILE=/var/run/$NAME.pid
 GLUSTERD_OPTS="--no-daemon --volfile=/etc/glusterfs/glusterd.vol --log-file=-"
-ADD_PEERS="dig +short gluster_server | while read line ; do gluster peer probe $line ; done"
 PID=`test -f $PIDFILE && cat $PIDFILE`
 
 
@@ -39,7 +38,7 @@ do_start()
       log_success_msg "glusterd service is already running with pid $PID"
     else
       log_daemon_msg "Starting glusterd service" "glusterd"
-      $DAEMON -p $PIDFILE $GLUSTERD_OPTS && $ADD_PEERS
+      $DAEMON -p $PIDFILE $GLUSTERD_OPTS
       log_end_msg $?
     fi
 }
